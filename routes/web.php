@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/item', 'ItemController@index')->name('item');
 Route::get('/remove/{id}', 'ItemController@remove')->name('remove');
 Route::get('/removed/records', 'ItemController@removed_records')->name('removed.records');
+
+Route::resource('products','ProductController');
