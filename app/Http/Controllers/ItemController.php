@@ -13,7 +13,13 @@ class ItemController extends Controller
     }
     public function remove($id)
     {
-        $data = \App\Item::find($id)->delete();
+        try{
+            $data = \App\Item::findOrFail($id)->delete();
+        }
+        catch (\Exception $e) {
+            return response()->json(['message'=>'user not found!'], 404);
+        }
+        //dd('done');
         return redirect()->route('item');
     }
     public function removed_records()
